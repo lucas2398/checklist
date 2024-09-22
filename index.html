@@ -7,25 +7,21 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('https://wallpaperaccess.com/full/329583.jpg');
-            background-size: cover;
-            background-attachment: fixed;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
-            color: #fff;
         }
         h1 {
             text-align: center;
             color: #ed1d24;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
         }
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         ul {
             list-style: none;
@@ -34,18 +30,17 @@
         ul li {
             display: flex;
             align-items: center;
+            background-color: #e2e2e2;
             margin: 10px 0;
-            padding: 15px;
+            padding: 10px;
             border-radius: 4px;
-            background-size: cover;
-            background-position: center;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            transition: background-color 0.3s;
         }
         ul li input[type="checkbox"] {
             margin-right: 15px;
         }
         ul li.checked {
-            background-color: rgba(0, 128, 0, 0.7);
+            background-color: #c8e6c9;
             text-decoration: line-through;
         }
         button {
@@ -63,107 +58,97 @@
         button:hover {
             background-color: #b71c1c;
         }
-
-        /* Estilos individuais para o fundo de cada filme/série */
-        li[data-movie="capitao-america"] { background-image: url('https://image.tmdb.org/t/p/w500/vSNxAJTlD0r02V9sPYpOjqDZXUK.jpg'); }
-        li[data-movie="capita-marvel"] { background-image: url('https://image.tmdb.org/t/p/w500/AtsgWhDnHTq68L0lLsUrCnM7TjG.jpg'); }
-        li[data-movie="homem-de-ferro"] { background-image: url('https://image.tmdb.org/t/p/w500/78lPtwv72eTNqFW9COBYI0dWDJa.jpg'); }
-        li[data-movie="homem-de-ferro-2"] { background-image: url('https://image.tmdb.org/t/p/w500/6WBeq4fCfn7AN0o21W9qNcRF2l9.jpg'); }
-        li[data-movie="hulk"] { background-image: url('https://image.tmdb.org/t/p/w500/gKzYx79y0AQTL4UAk1cBQJ3nvrm.jpg'); }
-        li[data-movie="thor"] { background-image: url('https://image.tmdb.org/t/p/w500/prSfAi1xGrhLQNxVSUFh61xQ4Qy.jpg'); }
-        li[data-movie="vingadores"] { background-image: url('https://image.tmdb.org/t/p/w500/bVmSXNgH1gpHYTDyF9Q830Gvchz.jpg'); }
-        li[data-movie="homem-de-ferro-3"] { background-image: url('https://image.tmdb.org/t/p/w500/qhPtAc1TKbMPqNvcdXSOn9Bn7hZ.jpg'); }
-        li[data-movie="thor-mundo-sombrio"] { background-image: url('https://image.tmdb.org/t/p/w500/wp6OxE4poJ4G7c0U2ZIXasTSMR7.jpg'); }
-        li[data-movie="capitao-soldado-invernal"] { background-image: url('https://image.tmdb.org/t/p/w500/tVFRpFw3xTedgPGqxW0AOI8Qhh0.jpg'); }
-        li[data-movie="guardioes-galaxia"] { background-image: url('https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg'); }
-        li[data-movie="guardioes-galaxia-2"] { background-image: url('https://image.tmdb.org/t/p/w500/aJn9XeesqsrSLKcHfHP4u5985hn.jpg'); }
-        li[data-movie="vingadores-era-ultron"] { background-image: url('https://image.tmdb.org/t/p/w500/4ssDuvEDkSArWEdyBl2X5EHvYKU.jpg'); }
-        li[data-movie="homem-formiga"] { background-image: url('https://image.tmdb.org/t/p/w500/D6e8RJf2qUstnfkTslTXNTUAlT.jpg'); }
-        li[data-movie="capitao-guerra-civil"] { background-image: url('https://image.tmdb.org/t/p/w500/kSBXou5Ac7vEqKd97wotJumyJvU.jpg'); }
-        li[data-movie="viuva-negra"] { background-image: url('https://image.tmdb.org/t/p/w500/qAZ0pzat24kLdO3o8ejmbLxyOac.jpg'); }
-        li[data-movie="pantera-negra"] { background-image: url('https://image.tmdb.org/t/p/w500/uxzzxijgPIY7slzFvMotPv8wjKA.jpg'); }
-        li[data-movie="homem-aranha-de-volta"] { background-image: url('https://image.tmdb.org/t/p/w500/c24sv2weTHPsmDa7jEMN0m2P3RT.jpg'); }
-        li[data-movie="doutor-estranho"] { background-image: url('https://image.tmdb.org/t/p/w500/uGBVj3bEbCoZbDjjl9wTxcygko1.jpg'); }
-        li[data-movie="thor-ragnarok"] { background-image: url('https://image.tmdb.org/t/p/w500/kaIfm5ryEOwYg8mLbq8HkPuM1Fo.jpg'); }
-        li[data-movie="homem-formiga-vespa"] { background-image: url('https://image.tmdb.org/t/p/w500/eivQmS3wqzqnQWILHLc4FsEfcXP.jpg'); }
-        li[data-movie="vingadores-guerra-infinita"] { background-image: url('https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg'); }
-        li[data-movie="vingadores-ultimato"] { background-image: url('https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg'); }
-        li[data-movie="loki"] { background-image: url('https://image.tmdb.org/t/p/w500/kEl2t3OhXc3Zb9FBh1AuYzRTgZp.jpg'); }
-        li[data-movie="what-if"] { background-image: url('https://image.tmdb.org/t/p/w500/lztz5XBMG1x6Y5ubz7CxfPFsAcW.jpg'); }
-        li[data-movie="wandavision"] { background-image: url('https://image.tmdb.org/t/p/w500/glKDfE6btIRcVB5zrjspRIs4r52.jpg'); }
-        li[data-movie="falcon-soldado"] { background-image: url('https://image.tmdb.org/t/p/w500/6kbAMLteGO8yyewYau6bJ683sw7.jpg'); }
-        li[data-movie="homem-aranha-longe-de-casa"] { background-image: url('https://image.tmdb.org/t/p/w500/4q2NNj4S5dG2RLF9CpXsej7yXl.jpg'); }
-        li[data-movie="shang-chi"] { background-image: url('https://image.tmdb.org/t/p/w500/1BIoJGKbXjdFDAqUEiA2VHqkK1Z.jpg'); }
-        li[data-movie="eternos"] { background-image: url('https://image.tmdb.org/t/p/w500/b6qUu00iIIkXX13szFy7d0CyNcg.jpg'); }
-        li[data-movie="homem-aranha-sem-volta"] { background-image: url('https://image.tmdb.org/t/p/w500/uJYYizSuA9Y3DCs0qS4qWvHfZg4.jpg'); }
-        li[data-movie="doutor-multiverso"] { background-image: url('https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg'); }
-        li[data-movie="thor-amor-trovao"] { background-image: url('https://image.tmdb.org/t/p/w500/pIkRyD18kl4FhoCNQuWxWu5cBLM.jpg'); }
-        li[data-movie="pantera-negra-wakanda-forever"] { background-image: url('https://image.tmdb.org/t/p/w500/ps2oKfhY6DL3alynlSqY97gHSsg.jpg'); }        
     </style>
 </head>
 <body>
+    <h1>Checklist Cronológico Marvel</h1>
     <div class="container">
-        <h1>Checklist Cronológico Marvel</h1>
-        <ul>
-            <li data-movie="capitao-america"><input type="checkbox"> Capitão América: O Primeiro Vingador (2011)</li>
-            <li data-movie="capita-marvel"><input type="checkbox"> Capitã Marvel (2019)</li>
-            <li data-movie="homem-de-ferro"><input type="checkbox"> Homem de Ferro (2008)</li>
-            <li data-movie="homem-de-ferro-2"><input type="checkbox"> Homem de Ferro 2 (2010)</li>
-            <li data-movie="hulk"><input type="checkbox"> O Incrível Hulk (2008)</li>
-            <li data-movie="thor"><input type="checkbox"> Thor (2011)</li>
-            <li data-movie="vingadores"><input type="checkbox"> Os Vingadores (2012)</li>
-            <li data-movie="homem-de-ferro-3"><input type="checkbox"> Homem de Ferro 3 (2013)</li>
-            <li data-movie="thor-mundo-sombrio"><input type="checkbox"> Thor: O Mundo Sombrio (2013)</li>
-            <li data-movie="capitao-soldado-invernal"><input type="checkbox"> Capitão América: O Soldado Invernal (2014)</li>
-            <li data-movie="guardioes-galaxia"><input type="checkbox"> Guardiões da Galáxia (2014)</li>
-            <li data-movie="guardioes-galaxia-2"><input type="checkbox"> Guardiões da Galáxia Vol. 2 (2017)</li>
-            <li data-movie="vingadores-era-ultron"><input type="checkbox"> Vingadores: Era de Ultron (2015)</li>
-            <li data-movie="homem-formiga"><input type="checkbox"> Homem-Formiga (2015)</li>
-            <li data-movie="capitao-guerra-civil"><input type="checkbox"> Capitão América: Guerra Civil (2016)</li>
-            <li data-movie="viuva-negra"><input type="checkbox"> Viúva Negra (2021)</li>
-            <li data-movie="pantera-negra"><input type="checkbox"> Pantera Negra (2018)</li>
-            <li data-movie="homem-aranha-de-volta"><input type="checkbox"> Homem-Aranha: De Volta ao Lar (2017)</li>
-            <li data-movie="doutor-estranho"><input type="checkbox"> Doutor Estranho (2016)</li>
-            <li data-movie="thor-ragnarok"><input type="checkbox"> Thor: Ragnarok (2017)</li>
-            <li data-movie="homem-formiga-vespa"><input type="checkbox"> Homem-Formiga e a Vespa (2018)</li>
-            <li data-movie="vingadores-guerra-infinita"><input type="checkbox"> Vingadores: Guerra Infinita (2018)</li>
-            <li data-movie="vingadores-ultimato"><input type="checkbox"> Vingadores: Ultimato (2019)</li>
-            <li data-movie="loki"><input type="checkbox"> Loki (2021)</li>
-            <li data-movie="what-if"><input type="checkbox"> What If...? (2021)</li>
-            <li data-movie="wandavision"><input type="checkbox"> WandaVision (2021)</li>
-            <li data-movie="falcon-soldado"><input type="checkbox"> Falcão e o Soldado Invernal (2021)</li>
-            <li data-movie="homem-aranha-longe-de-casa"><input type="checkbox"> Homem-Aranha: Longe de Casa (2019)</li>
-            <li data-movie="shang-chi"><input type="checkbox"> Shang-Chi e a Lenda dos Dez Anéis (2021)</li>
-            <li data-movie="eternos"><input type="checkbox"> Eternos (2021)</li>
-            <li data-movie="homem-aranha-sem-volta"><input type="checkbox"> Homem-Aranha: Sem Volta para Casa (2021)</li>
-            <li data-movie="doutor-multiverso"><input type="checkbox"> Doutor Estranho no Multiverso da Loucura (2022)</li>
-            <li data-movie="thor-amor-trovao"><input type="checkbox"> Thor: Amor e Trovão (2022)</li>
-            <li data-movie="pantera-negra-wakanda-forever"><input type="checkbox"> Pantera Negra: Wakanda Para Sempre (2022)</li>
+        <ul id="checklist">
+            <!-- Fase 1 -->
+            <li><input type="checkbox"> Capitão América: O Primeiro Vingador (2011)</li>
+            <li><input type="checkbox"> Capitã Marvel (2019)</li>
+            <li><input type="checkbox"> Homem de Ferro (2008)</li>
+            <li><input type="checkbox"> Homem de Ferro 2 (2010)</li>
+            <li><input type="checkbox"> O Incrível Hulk (2008)</li>
+            <li><input type="checkbox"> Thor (2011)</li>
+            <li><input type="checkbox"> Os Vingadores (2012)</li>
+            
+            <!-- Fase 2 -->
+            <li><input type="checkbox"> Homem de Ferro 3 (2013)</li>
+            <li><input type="checkbox"> Thor: O Mundo Sombrio (2013)</li>
+            <li><input type="checkbox"> Capitão América: O Soldado Invernal (2014)</li>
+            <li><input type="checkbox"> Guardiões da Galáxia (2014)</li>
+            <li><input type="checkbox"> Guardiões da Galáxia Vol. 2 (2017)</li>
+            <li><input type="checkbox"> Vingadores: Era de Ultron (2015)</li>
+            <li><input type="checkbox"> Homem-Formiga (2015)</li>
+
+            <!-- Fase 3 -->
+            <li><input type="checkbox"> Capitão América: Guerra Civil (2016)</li>
+            <li><input type="checkbox"> Viúva Negra (2021)</li>
+            <li><input type="checkbox"> Pantera Negra (2018)</li>
+            <li><input type="checkbox"> Homem-Aranha: De Volta ao Lar (2017)</li>
+            <li><input type="checkbox"> Doutor Estranho (2016)</li>
+            <li><input type="checkbox"> Thor: Ragnarok (2017)</li>
+            <li><input type="checkbox"> Homem-Formiga e a Vespa (2018)</li>
+            <li><input type="checkbox"> Vingadores: Guerra Infinita (2018)</li>
+            <li><input type="checkbox"> Vingadores: Ultimato (2019)</li>
+            <li><input type="checkbox"> Loki (Série, 2021)</li>
+            <li><input type="checkbox"> What If...? (Série, 2021)</li>
+            <li><input type="checkbox"> WandaVision (Série, 2021)</li>
+            <li><input type="checkbox"> Falcão e o Soldado Invernal (Série, 2021)</li>
+            <li><input type="checkbox"> Homem-Aranha: Longe de Casa (2019)</li>
+
+            <!-- Fase 4 -->
+            <li><input type="checkbox"> Shang-Chi e a Lenda dos Dez Anéis (2021)</li>
+            <li><input type="checkbox"> Eternos (2021)</li>
+            <li><input type="checkbox"> Homem-Aranha: Sem Volta para Casa (2021)</li>
+            <li><input type="checkbox"> Doutor Estranho no Multiverso da Loucura (2022)</li>
+            <li><input type="checkbox"> Gavião Arqueiro (Série, 2021)</li>
+            <li><input type="checkbox"> Cavaleiro da Lua (Série, 2022)</li>
+            <li><input type="checkbox"> Thor: Amor e Trovão (2022)</li>
+            <li><input type="checkbox"> Pantera Negra: Wakanda Para Sempre (2022)</li>
+            <li><input type="checkbox"> Loki Temporada 2 (Série, 2023)</li>
+            <li><input type="checkbox"> Homem-Formiga e a Vespa: Quantumania (2023)</li>
+            <li><input type="checkbox"> Invasão Secreta (Série, 2023)</li>
         </ul>
-        <button>Marcar todos como vistos</button>
+        <button onclick="resetChecklist()">Resetar Checklist</button>
     </div>
 
     <script>
-        // Função para alternar o estado dos itens da checklist
-        const items = document.querySelectorAll('ul li input[type="checkbox"]');
-        items.forEach(item => {
-            item.addEventListener('change', function() {
-                if (this.checked) {
-                    this.parentElement.classList.add('checked');
-                } else {
-                    this.parentElement.classList.remove('checked');
+        const checklist = document.getElementById('checklist');
+        const checkboxes = checklist.querySelectorAll('input[type="checkbox"]');
+
+        // Carregar o estado salvo
+        document.addEventListener("DOMContentLoaded", function () {
+            checkboxes.forEach((checkbox, index) => {
+                const checked = localStorage.getItem(`checkbox${index}`);
+                if (checked === 'true') {
+                    checkbox.checked = true;
+                    checkbox.parentElement.classList.add('checked');
                 }
             });
         });
 
-        // Função para marcar todos como vistos
-        const button = document.querySelector('button');
-        button.addEventListener('click', function() {
-            items.forEach(item => {
-                item.checked = true;
-                item.parentElement.classList.add('checked');
+        // Salvar o estado de cada checkbox
+        checkboxes.forEach((checkbox, index) => {
+            checkbox.addEventListener('change', function () {
+                localStorage.setItem(`checkbox${index}`, checkbox.checked);
+                if (checkbox.checked) {
+                    checkbox.parentElement.classList.add('checked');
+                } else {
+                    checkbox.parentElement.classList.remove('checked');
+                }
             });
         });
+
+        // Função para resetar a checklist
+        function resetChecklist() {
+            checkboxes.forEach((checkbox, index) => {
+                checkbox.checked = false;
+                checkbox.parentElement.classList.remove('checked');
+                localStorage.setItem(`checkbox${index}`, false);
+            });
+        }
     </script>
 </body>
 </html>
