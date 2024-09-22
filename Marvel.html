@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist Marvel Cronológico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #ed1d24;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            display: flex;
+            align-items: center;
+            background-color: #e2e2e2;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        ul li input[type="checkbox"] {
+            margin-right: 15px;
+        }
+        ul li.checked {
+            background-color: #c8e6c9;
+            text-decoration: line-through;
+        }
+        button {
+            display: block;
+            width: 100%;
+            background-color: #ed1d24;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Checklist Cronológico Marvel</h1>
+    <div class="container">
+        <ul id="checklist">
+            <!-- Fase 1 -->
+            <li><input type="checkbox"> Capitão América: O Primeiro Vingador (2011)</li>
+            <li><input type="checkbox"> Capitã Marvel (2019)</li>
+            <li><input type="checkbox"> Homem de Ferro (2008)</li>
+            <li><input type="checkbox"> Homem de Ferro 2 (2010)</li>
+            <li><input type="checkbox"> O Incrível Hulk (2008)</li>
+            <li><input type="checkbox"> Thor (2011)</li>
+            <li><input type="checkbox"> Os Vingadores (2012)</li>
+            
+            <!-- Fase 2 -->
+            <li><input type="checkbox"> Homem de Ferro 3 (2013)</li>
+            <li><input type="checkbox"> Thor: O Mundo Sombrio (2013)</li>
+            <li><input type="checkbox"> Capitão América: O Soldado Invernal (2014)</li>
+            <li><input type="checkbox"> Guardiões da Galáxia (2014)</li>
+            <li><input type="checkbox"> Guardiões da Galáxia Vol. 2 (2017)</li>
+            <li><input type="checkbox"> Vingadores: Era de Ultron (2015)</li>
+            <li><input type="checkbox"> Homem-Formiga (2015)</li>
+
+            <!-- Fase 3 -->
+            <li><input type="checkbox"> Capitão América: Guerra Civil (2016)</li>
+            <li><input type="checkbox"> Viúva Negra (2021)</li>
+            <li><input type="checkbox"> Pantera Negra (2018)</li>
+            <li><input type="checkbox"> Homem-Aranha: De Volta ao Lar (2017)</li>
+            <li><input type="checkbox"> Doutor Estranho (2016)</li>
+            <li><input type="checkbox"> Thor: Ragnarok (2017)</li>
+            <li><input type="checkbox"> Homem-Formiga e a Vespa (2018)</li>
+            <li><input type="checkbox"> Vingadores: Guerra Infinita (2018)</li>
+            <li><input type="checkbox"> Vingadores: Ultimato (2019)</li>
+            <li><input type="checkbox"> Loki (Série, 2021)</li>
+            <li><input type="checkbox"> What If...? (Série, 2021)</li>
+            <li><input type="checkbox"> WandaVision (Série, 2021)</li>
+            <li><input type="checkbox"> Falcão e o Soldado Invernal (Série, 2021)</li>
+            <li><input type="checkbox"> Homem-Aranha: Longe de Casa (2019)</li>
+
+            <!-- Fase 4 -->
+            <li><input type="checkbox"> Shang-Chi e a Lenda dos Dez Anéis (2021)</li>
+            <li><input type="checkbox"> Eternos (2021)</li>
+            <li><input type="checkbox"> Homem-Aranha: Sem Volta para Casa (2021)</li>
+            <li><input type="checkbox"> Doutor Estranho no Multiverso da Loucura (2022)</li>
+            <li><input type="checkbox"> Gavião Arqueiro (Série, 2021)</li>
+            <li><input type="checkbox"> Cavaleiro da Lua (Série, 2022)</li>
+            <li><input type="checkbox"> Thor: Amor e Trovão (2022)</li>
+            <li><input type="checkbox"> Pantera Negra: Wakanda Para Sempre (2022)</li>
+            <li><input type="checkbox"> Loki Temporada 2 (Série, 2023)</li>
+            <li><input type="checkbox"> Homem-Formiga e a Vespa: Quantumania (2023)</li>
+            <li><input type="checkbox"> Invasão Secreta (Série, 2023)</li>
+        </ul>
+        <button onclick="resetChecklist()">Resetar Checklist</button>
+    </div>
+
+    <script>
+        const checklist = document.getElementById('checklist');
+        const checkboxes = checklist.querySelectorAll('input[type="checkbox"]');
+
+        // Carregar o estado salvo
+        document.addEventListener("DOMContentLoaded", function () {
+            checkboxes.forEach((checkbox, index) => {
+                const checked = localStorage.getItem(`checkbox${index}`);
+                if (checked === 'true') {
+                    checkbox.checked = true;
+                    checkbox.parentElement.classList.add('checked');
+                }
+            });
+        });
+
+        // Salvar o estado de cada checkbox
+        checkboxes.forEach((checkbox, index) => {
+            checkbox.addEventListener('change', function () {
+                localStorage.setItem(`checkbox${index}`, checkbox.checked);
+                if (checkbox.checked) {
+                    checkbox.parentElement.classList.add('checked');
+                } else {
+                    checkbox.parentElement.classList.remove('checked');
+                }
+            });
+        });
+
+        // Função para resetar a checklist
+        function resetChecklist() {
+            checkboxes.forEach((checkbox, index) => {
+                checkbox.checked = false;
+                checkbox.parentElement.classList.remove('checked');
+                localStorage.setItem(`checkbox${index}`, false);
+            });
+        }
+    </script>
+</body>
+</html>
